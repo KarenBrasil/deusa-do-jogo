@@ -23,7 +23,7 @@ const LinguagensAmor: React.FC<LinguagensAmorProps> = ({ theme, onComplete }) =>
 
   const questions = [
     { q: "Um elogio inesperado me faz sentir a Deusa mais poderosa do Egito.", type: 'A' },
-    { q: "Celular na mesa é meu kryptonita; prefiro atenção total ou nada.", type: 'B' },
+    { q: "Celular na mesa é meu kryptonita; prefiro attention total ou nada.", type: 'B' },
     { q: "Lembrancinhas aleatórias provam que ele pensa em mim, não só no próprio ego.", type: 'C' },
     { q: "Ele resolver um perrengue chato pra mim é mais sexy que flores.", type: 'D' },
     { q: "Abraço de urso e cafuné resolvem 90% dos meus problemas diários.", type: 'E' },
@@ -113,7 +113,7 @@ const LinguagensAmor: React.FC<LinguagensAmorProps> = ({ theme, onComplete }) =>
             onClick={() => setStep('quiz-user')}
             className="w-full py-6 rounded-3xl bg-violet-600 text-white font-black uppercase tracking-widest shadow-lg active:scale-95 transition-all"
           >
-            Iniciar Quiz Rápido
+            descobrir a linguagem do amor
           </button>
         </section>
       )}
