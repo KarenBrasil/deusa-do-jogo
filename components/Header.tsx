@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Tab, Theme } from '../App';
 
@@ -20,41 +19,43 @@ const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, theme, toggleT
   ];
 
   return (
-    <header className={`sticky top-0 z-50 border-b backdrop-blur-2xl transition-all ${theme === 'dark' ? 'bg-black/80 border-white/10 shadow-xl' : 'bg-white/80 border-black/5 shadow-sm'}`}>
-      <div className="px-6 py-6 flex flex-col gap-6">
-        <div className="flex items-center justify-between">
+    <header className={`sticky top-0 z-50 border-b backdrop-blur-2xl transition-all ${theme === 'dark' ? 'bg-black/80 border-white/5 shadow-xl' : 'bg-white/80 border-black/5 shadow-sm'}`}>
+      <div className="px-6 py-6 flex flex-col items-center gap-6">
+        <div className="flex items-center justify-between w-full max-w-5xl">
+          <div className="w-10"></div> {/* Left spacer */}
+          
           <button 
             onClick={() => setActiveTab('home')}
-            className={`flex items-center gap-3 group transition-all active:scale-95`}
+            className="flex flex-col items-center gap-1 group transition-all active:scale-95"
           >
-            <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors shadow-lg ${theme === 'dark' ? 'bg-violet-600 text-white' : 'bg-black text-white'}`}>
-              <i className="fa-solid fa-house text-sm"></i>
+            <div className={`text-xl mb-1 ${theme === 'dark' ? 'text-violet-500' : 'text-black'}`}>
+              <i className="fa-solid fa-crown"></i>
             </div>
-            <h1 className={`text-2xl font-bold uppercase tracking-tighter italic ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
-              Deusa <span className="text-[#9d66ff]">do</span> Jogo
+            <h1 className={`text-xl font-black uppercase tracking-[0.2em] transition-colors ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+              DEUSA DO JOGO
             </h1>
           </button>
 
           <button 
             onClick={toggleTheme}
-            className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-all shadow-md ${theme === 'dark' ? 'bg-zinc-900 text-yellow-500' : 'bg-gray-100 text-violet-600'}`}
+            className={`w-10 h-10 rounded-2xl flex items-center justify-center transition-all ${theme === 'dark' ? 'bg-zinc-900 text-yellow-500' : 'bg-gray-100 text-violet-600'}`}
           >
-            <i className={`fa-solid ${theme === 'dark' ? 'fa-sun' : 'fa-moon'} text-lg`}></i>
+            <i className={`fa-solid ${theme === 'dark' ? 'fa-sun' : 'fa-moon'}`}></i>
           </button>
         </div>
 
-        <nav className="flex gap-3 overflow-x-auto no-scrollbar pb-2">
+        <nav className="flex gap-1 overflow-x-auto no-scrollbar pb-1 justify-center w-full">
           {menuItems.map((item) => (
             <button
               key={item.id}
               onClick={() => setActiveTab(item.id)}
-              className={`flex items-center gap-3 px-6 py-4 rounded-2xl transition-all whitespace-nowrap text-xs font-black uppercase tracking-widest border shadow-sm ${
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl transition-all whitespace-nowrap text-[9px] font-bold uppercase tracking-widest ${
                 activeTab === item.id 
-                ? (theme === 'dark' ? 'bg-white text-black border-white' : 'bg-black text-white border-black') 
-                : (theme === 'dark' ? 'bg-zinc-900/50 text-gray-400 border-white/5' : 'bg-gray-50 text-gray-500 border-black/5')
+                ? (theme === 'dark' ? 'bg-white text-black' : 'bg-black text-white') 
+                : (theme === 'dark' ? 'text-gray-500 hover:text-white' : 'text-gray-400 hover:text-black')
               }`}
             >
-              <i className={`fa-solid ${item.icon} text-xs`}></i>
+              <i className={`fa-solid ${item.icon}`}></i>
               {item.label}
             </button>
           ))}
